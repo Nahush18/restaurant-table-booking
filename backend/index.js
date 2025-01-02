@@ -5,6 +5,17 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 
 const app = express();
+const cors = require('cors');
+
+// Define CORS options
+const corsOptions = {
+    origin: ['https://restaurant-table-booking-xi.vercel.app'], // Replace with your actual deployed frontend domain
+    methods: ['GET', 'POST'], // Add other HTTP methods if needed
+    allowedHeaders: ['Content-Type', 'Authorization'], // Adjust headers if needed
+};
+
+// Apply CORS middleware
+app.use(cors(corsOptions));
 
 // Middleware
 app.use(cors());
